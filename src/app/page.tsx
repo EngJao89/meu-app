@@ -10,6 +10,7 @@ interface DataProps{
     url: string;
   }
 }
+
 async function getData() {
   const response = await fetch("https://api.github.com/users/EngJao89/repos");
 
@@ -19,7 +20,6 @@ async function getData() {
 export default async function Home() {
   const data: DataProps[] = await getData();
 
-  console.log(data);
   return (
     <main>
       <h1>Home</h1>
