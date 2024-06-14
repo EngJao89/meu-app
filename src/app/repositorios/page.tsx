@@ -1,6 +1,9 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import { FaFolder } from "react-icons/fa6";
+
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface DataProps{
   id: number;
@@ -30,14 +33,24 @@ export default function Repositorios(){
 
     getData();
   })
+
   return (
     <div>
-      <h1>Página de Repositórios</h1>
-      {repos.map((item) =>(
-        <div key={item.id}>
-          <strong>Repositório:</strong>
-          <a>{item.name}</a>
-          <br/><br/>
+      <h1 className="ml-5 text-white">Página de Repositórios</h1>
+
+      {repos.map((item) => (
+        <div key={item.id} className="m-4">
+          <Card className="bg-zinc-900 bg-opacity-30 backdrop-blur-lg">
+            <CardHeader className="inline-flex justify-between text-white">
+              <FaFolder  size={14}/>
+              {item.name}
+            </CardHeader>
+            <CardContent>
+              <div>
+                <h3 className="text-white">{item.owner.login}</h3>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       ))}
     </div>
