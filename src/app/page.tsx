@@ -25,11 +25,7 @@ export default async function Home() {
 
   return (
     <main>
-      <h1 className="text-white">Home</h1>
-      <span className="text-white">Seja Bem vindo</span>
-      <br/>
-
-      <h3 className="text-white">Repositórios</h3>
+      <h3 className="text-white ml-4">Repositórios</h3>
       {data.map((item) => (
         <div key={item.id} className="m-4">
           <Card className="bg-zinc-900 bg-opacity-30 backdrop-blur-lg">
