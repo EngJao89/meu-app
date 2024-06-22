@@ -1,10 +1,15 @@
+import Link from "next/link";
+import { DiTechcrunch } from "react-icons/di";
+import { FaGithub } from "react-icons/fa";
 import { FaFolder, FaUserAstronaut } from "react-icons/fa6";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface DataProps {
   id: number;
   name: string;
   full_name: string;
+  html_url: string;
   language: string;
   owner: {
     login: string;
@@ -36,10 +41,25 @@ export default async function Home() {
               {item.name}
             </CardHeader>
             <CardContent>
-              <div className="mb-4 inline-flex items-baseline">
+              <div className="mb-4 ml-6 inline-flex justify-center items-baseline">
                 <FaUserAstronaut size={14} color="#FFFFFF" className="mr-1" />
                 <h3 className="text-white">{item.owner.login}</h3>
               </div>
+              <div className="mb-4">
+                <Link href={`/repositorios/${item.id}`}>
+                  <Button 
+                    type="submit"
+                    className="rounded-full w-full px-5 py-2 bg-gray-100 text-[10px] text-center text-gray-900 hover:bg-zinc-500"
+                  >
+                    Detalhes Repositório
+                    <FaGithub size={14} className="ml-2"/>
+                  </Button>
+                </Link>
+              </div>
+              <div className="flex items-center">
+                  <DiTechcrunch size={20} color="gray" className="mr-1"/>
+                  <p className="text-xs text-white">{item.language}</p>
+                </div>
             </CardContent>
           </Card>
         ))}
