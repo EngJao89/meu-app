@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { Header } from "@/components/Header";
+
+import bg from "../../public/wp7043549-technology-desktop-wallpapers.jpg"
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-gradient-to-r from-slate-700 to-zinc-800">
+    <html 
+      lang="en" 
+      className="bg-gradient-to-r from-slate-700 to-zinc-800" 
+      style={{ backgroundImage: `url(${bg.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+    >
       <body className={inter.className}>
         <Header />
         {children}
